@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "name": "metalsmith-request",
+  "description": "Metalsmith plugin to grab content from the web and expose the results to metadata",
+  "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
+  "repository": "ahmadnassri/metalsmith-request",
+  "license": "MIT",
+  "main": "src/index.js",
+  "keywords": [
+    "metalsmith",
+    "plugin",
+    "request",
+    "http",
+    "json",
+    "got"
+  ],
+  "engines": {
+    "node": ">=0.10"
+  },
+  "files": [
+    "src"
+  ],
+  "bugs": {
+    "url": "https://github.com/ahmadnassri/metalsmith-request/issues"
+  },
+  "scripts": {
+    "test": "standard && mocha --reporter spec",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "codeclimate": "codeclimate < coverage/lcov.info"
+  },
+  "devDependencies": {
+    "codeclimate-test-reporter": "0.0.4",
+    "istanbul": "^0.3.13",
+    "metalsmith": "^1.7.0",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1",
+    "standard": "^3.7.3"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "debug": "^2.2.0",
+    "got": "^3.2.0"
+  }
+}
