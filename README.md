@@ -72,7 +72,7 @@ Donations are welcome to help support the continuous development of this project
 
 ## License
 
-[MIT](LICENSE) &copy; [Max Bareiss](https://github.com/MaxBareiss), [Ahmad Nassri](https://www.ahmadnassri.com)
+[MIT](LICENSE) &copy; [Ahmad Nassri](https://www.ahmadnassri.com)
 
 [license-url]: https://github.com/ahmadnassri/metalsmith-request/blob/master/LICENSE
 
