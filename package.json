@@ -24,20 +24,23 @@
     "url": "https://github.com/ahmadnassri/metalsmith-request/issues"
   },
   "scripts": {
-    "test": "standard && mocha --reporter spec",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "pretest": "standard && echint",
+    "test": "mocha",
+    "posttest": "npm run coverage",
+    "coverage": "istanbul cover --dir coverage _mocha -- -R dot",
     "codeclimate": "codeclimate < coverage/lcov.info"
   },
   "devDependencies": {
     "codeclimate-test-reporter": "0.0.4",
-    "istanbul": "^0.3.13",
+    "echint": "^1.1.1",
+    "istanbul": "^0.3.14",
     "metalsmith": "^1.7.0",
-    "mocha": "^2.2.4",
-    "should": "^6.0.1",
-    "standard": "^3.7.3"
+    "mocha": "^2.2.5",
+    "should": "^6.0.3",
+    "standard": "^3.11.1"
   },
   "dependencies": {
-    "async": "^0.9.0",
+    "async": "^1.0.0",
     "debug": "^2.2.0",
     "got": "^3.2.0"
   }
