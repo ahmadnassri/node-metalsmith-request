@@ -34,7 +34,7 @@
     "codeclimate-test-reporter": "0.0.4",
     "echint": "^1.1.1",
     "istanbul": "^0.3.14",
-    "metalsmith": "^1.7.0",
+    "metalsmith": "^2.1.0",
     "mocha": "^2.2.5",
     "should": "^6.0.3",
     "standard": "^3.11.1"
