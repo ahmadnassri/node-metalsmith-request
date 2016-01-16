@@ -1,4 +1,4 @@
-# Metalsmith Request [![version][npm-version]][npm-url] [![License][npm-license]][license-url]
+# Metalsmith Request [![version][npm-version]][npm-url] [![License][npm-license]][license-url] [![Actively Maintained][active-image]][active-url]
 
 [Metalsmith](http://www.metalsmith.io/) plugin to grab content from the web and expose the results to metadata.
 
@@ -102,3 +102,6 @@ Donations are welcome to help support the continuous development of this project
 
 [bitcoin-image]: http://img.shields.io/badge/bitcoin-1Nb46sZRVG3or7pNaDjthcGJpWhvoPpCxy-green.svg?style=flat-square
 [bitcoin-url]: https://www.coinbase.com/checkouts/ae383ae6bb931a2fa5ad11cec115191e?name=metalsmith-request
+
+[active-image]: https://maintained.tech/badge.svg
+[active-url]: https://maintained.tech/
