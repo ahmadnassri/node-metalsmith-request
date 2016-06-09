@@ -31,7 +31,7 @@
     "codeclimate": "codeclimate < coverage/lcov.info"
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "0.0.4",
+    "codeclimate-test-reporter": "0.3.2",
     "echint": "^1.1.1",
     "istanbul": "^0.3.14",
     "metalsmith": "^1.7.0",
