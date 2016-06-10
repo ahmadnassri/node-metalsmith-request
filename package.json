@@ -36,7 +36,7 @@
     "istanbul": "^0.4.3",
     "metalsmith": "^1.7.0",
     "mocha": "^2.2.5",
-    "should": "^9.0.0",
+    "should": "^9.0.1",
     "standard": "^7.1.2"
   },
   "dependencies": {
