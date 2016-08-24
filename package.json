@@ -33,7 +33,7 @@
   "devDependencies": {
     "codeclimate-test-reporter": "0.3.2",
     "echint": "^1.1.1",
-    "istanbul": "^0.4.3",
+    "istanbul": "^0.4.4",
     "metalsmith": "^1.7.0",
     "mocha": "^3.0.1",
     "should": "^11.0.0",
