@@ -37,7 +37,7 @@
     "metalsmith": "^1.7.0",
     "mocha": "^3.0.1",
     "should": "^11.0.0",
-    "standard": "^8.0.0"
+    "standard": "^8.2.0"
   },
   "dependencies": {
     "async": "^1.0.0",
