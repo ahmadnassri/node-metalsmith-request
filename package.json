@@ -35,7 +35,7 @@
     "echint": "^1.1.1",
     "istanbul": "^0.4.3",
     "metalsmith": "^1.7.0",
-    "mocha": "^3.0.1",
+    "mocha": "^3.1.2",
     "should": "^11.0.0",
     "standard": "^8.0.0"
   },
