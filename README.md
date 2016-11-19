@@ -1,6 +1,6 @@
-# Metalsmith Request [![version][npm-version]][npm-url] [![License][npm-license]][license-url] [![Actively Maintained][active-image]][active-url]
+# Metalsmith Request [![version][npm-version]][npm-url] [![License][npm-license]][license-url]
 
-[Metalsmith](http://www.metalsmith.io/) plugin to grab content from the web and expose the results to metadata.
+> [Metalsmith](http://www.metalsmith.io/) plugin to grab content from the web and expose the results to metadata.
 
 uses [got](https://github.com/sindresorhus/got) under the hood to make HTTP calls.
 
@@ -8,12 +8,35 @@ uses [got](https://github.com/sindresorhus/got) under the hood to make HTTP call
 [![Downloads][npm-downloads]][npm-url]
 [![Code Climate][codeclimate-quality]][codeclimate-url]
 [![Coverage Status][codeclimate-coverage]][codeclimate-url]
+[![Dependency Status][dependencyci-image]][dependencyci-url]
 [![Dependencies][david-image]][david-url]
 
 ## Install
 
-```sh
-npm install --save metalsmith-request
+```bash
+npm install --production --save metalsmith-request
+```
+
+## Usage
+
+I recommend using an optimized build matching your Node.js environment version, otherwise, the standard `require` would work just fine with any version of Node `>= v4.0` .
+
+```js
+/*
+ * Node 7
+ */
+const request = require('metalsmith-request/lib/node7')
+
+/*
+ * Node 6
+ */
+const request = require('metalsmith-request/lib/node6')
+
+/*
+ * Node 4 (Default)
+ * Note: additional ES2015 polyfills may be required
+ */
+var request = require('metalsmith-request')
 ```
 
 ## API
@@ -21,10 +44,7 @@ npm install --save metalsmith-request
 Pass `targets` to the plugin with the `use` method:
 
 ```js
-var Metalsmith = require('metalsmith')
-var request = require('metalsmith-request')
-
-var metalsmith = new Metalsmith(__dirname)
+const metalsmith = new Metalsmith(__dirname)
   .use(request({
     foo: 'http://domain.com/foo'
   }))
@@ -33,12 +53,9 @@ var metalsmith = new Metalsmith(__dirname)
 You can also pass `options` as the second argument to use with the [got](https://github.com/sindresorhus/got) module
 
 ```js
-var Metalsmith = require('metalsmith')
-var request = require('metalsmith-request')
-
-var metalsmith = new Metalsmith(__dirname)
+const metalsmith = new Metalsmith(__dirname)
   .use(request(
-    {
+    { 
       foo: 'http://domain.com/foo.json'
     }, 
     {
@@ -61,20 +78,13 @@ You can also use the plugin with the Metalsmith CLI by adding a key to your `met
 }
 ```
 
-## Support
+----
+> :copyright: [ahmadnassri.com](https://www.ahmadnassri.com/) &nbsp;&middot;&nbsp;
+> License: [ISC][license-url] &nbsp;&middot;&nbsp;
+> Github: [@ahmadnassri](https://github.com/ahmadnassri) &nbsp;&middot;&nbsp;
+> Twitter: [@ahmadnassri](https://twitter.com/ahmadnassri)
 
-Donations are welcome to help support the continuous development of this project.
-
-[![Gratipay][gratipay-image]][gratipay-url]
-[![PayPal][paypal-image]][paypal-url]
-[![Flattr][flattr-image]][flattr-url]
-[![Bitcoin][bitcoin-image]][bitcoin-url]
-
-## License
-
-[MIT](LICENSE) &copy; [Ahmad Nassri](https://www.ahmadnassri.com)
-
-[license-url]: https://github.com/ahmadnassri/metalsmith-request/blob/master/LICENSE
+[license-url]: http://choosealicense.com/licenses/isc/
 
 [travis-url]: https://travis-ci.org/ahmadnassri/metalsmith-request
 [travis-image]: https://img.shields.io/travis/ahmadnassri/metalsmith-request.svg?style=flat-square
@@ -91,17 +101,5 @@ Donations are welcome to help support the continuous development of this project
 [david-url]: https://david-dm.org/ahmadnassri/metalsmith-request
 [david-image]: https://img.shields.io/david/ahmadnassri/metalsmith-request.svg?style=flat-square
 
-[gratipay-url]: https://www.gratipay.com/ahmadnassri/
-[gratipay-image]: https://img.shields.io/gratipay/ahmadnassri.svg?style=flat-square
-
-[paypal-url]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UJ2B2BTK9VLRS&on0=project&os0=metalsmith-request
-[paypal-image]: http://img.shields.io/badge/paypal-donate-green.svg?style=flat-square
-
-[flattr-url]: https://flattr.com/submit/auto?user_id=codeinchaos&url=https://github.com/ahmadnassri/metalsmith-request&title=metalsmith-request&language=&tags=github&category=software
-[flattr-image]: http://img.shields.io/badge/flattr-donate-green.svg?style=flat-square
-
-[bitcoin-image]: http://img.shields.io/badge/bitcoin-1Nb46sZRVG3or7pNaDjthcGJpWhvoPpCxy-green.svg?style=flat-square
-[bitcoin-url]: https://www.coinbase.com/checkouts/ae383ae6bb931a2fa5ad11cec115191e?name=metalsmith-request
-
-[active-image]: https://maintained.tech/badge.svg
-[active-url]: https://maintained.tech/
+[dependencyci-url]: https://dependencyci.com/github/ahmadnassri/metalsmith-request
+[dependencyci-image]: https://dependencyci.com/github/ahmadnassri/metalsmith-request/badge?style=flat-square

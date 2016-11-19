@@ -1,4 +1,4 @@
 *.log
-node_modules
-coverage*
-test/build
+/lib
+/node_modules
+/.nyc_output

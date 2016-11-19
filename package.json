@@ -1,11 +1,15 @@
 {
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "name": "metalsmith-request",
   "description": "Metalsmith plugin to grab content from the web and expose the results to metadata",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
-  "repository": "ahmadnassri/metalsmith-request",
-  "license": "MIT",
-  "main": "src/index.js",
+  "homepage": "https://github.com/ahmadnassri/metalsmith-request",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmadnassri/metalsmith-request.git"
+  },
+  "license": "ISC",
+  "main": "lib/index.js",
   "keywords": [
     "metalsmith",
     "plugin",
@@ -15,33 +19,53 @@
     "got"
   ],
   "engines": {
-    "node": ">= 4"
+    "node": ">=4"
   },
   "files": [
+    "lib",
     "src"
   ],
   "bugs": {
     "url": "https://github.com/ahmadnassri/metalsmith-request/issues"
   },
   "scripts": {
-    "pretest": "standard && echint",
-    "test": "mocha",
-    "posttest": "npm run coverage",
-    "coverage": "istanbul cover --dir coverage _mocha -- -R dot",
-    "codeclimate": "codeclimate < coverage/lcov.info"
+    "compile": "babel -q src",
+    "test": "BABEL_ENV=test tap test/*.js --node-arg=--require --node-arg=babel-register | tap-mocha-reporter spec",
+    "pretest": "snazzy && echint",
+    "coverage": "BABEL_ENV=test tap test/*.js --coverage --nyc-arg=--require --nyc-arg=babel-register",
+    "codeclimate": "nyc report --reporter=text-lcov | codeclimate-test-reporter",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "standard": {
+    "ignore": [
+      "lib/**"
+    ]
+  },
+  "echint": {
+    "ignore": [
+      "lib/**"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "0.3.2",
-    "echint": "^1.1.1",
-    "istanbul": "^0.4.3",
-    "metalsmith": "^1.7.0",
-    "mocha": "^3.0.1",
-    "should": "^11.0.0",
-    "standard": "^8.0.0"
+    "babel-cli": "^6.18.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "0.0.8",
+    "babel-register": "^6.18.0",
+    "codeclimate-test-reporter": "^0.4.0",
+    "cz-conventional-changelog": "^1.2.0",
+    "echint": "^1.5.3",
+    "metalsmith": "^2.3.0",
+    "semantic-release": "^6.3.2",
+    "snazzy": "^5.0.0",
+    "tap": "^8.0.1",
+    "tap-mocha-reporter": "^3.0.0"
   },
   "dependencies": {
-    "async": "^1.0.0",
-    "debug": "^2.2.0",
-    "got": "^6.3.0"
+    "got": "^6.6.3"
   }
 }

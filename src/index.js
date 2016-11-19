@@ -1,11 +1,9 @@
-'use strict'
+import { debuglog } from 'util'
+import got from 'got'
 
-var async = require('async')
-var debug = require('debug')('metalsmith-request')
-var got = require('got')
-var util = require('util')
+const debug = debuglog('metalsmith-request')
 
-var defaults = {
+const defaults = {
   json: false,
   headers: {
     'user-agent': 'https://github.com/ahmadnassri/metalsmith-request'
@@ -14,27 +12,26 @@ var defaults = {
 
 module.exports = function (targets, options) {
   targets = targets || {}
-  options = util._extend(defaults, options || {})
+  options = Object.assign({}, defaults, options)
 
-  return function (files, metalsmith, done) {
-    var metadata = metalsmith.metadata()
-
-    function get (key, done) {
-      var url = targets[key]
+  return (files, metalsmith, done) => {
+    Promise.all(Object.keys(targets).map((key) => {
+      let metadata = metalsmith.metadata()
+      let url = targets[key]
 
       debug('[%s](%s) >', key, url)
 
-      got.get(url, options, function (err, data, res) {
-        debug('[%s](%s) < %s: %s', key, url, res.statusCode, res.statusMessage)
+      return got(url, options)
+        .then(response => {
+          debug('[%s](%s) < %s: %s', key, url, response.statusCode, response.statusMessage)
 
-        if (err) return done(err)
+          return response.body
+        })
 
-        metadata[key] = data
+        .then(body => (metadata[key] = body))
+    }))
 
-        done()
-      })
-    }
-
-    async.each(Object.keys(targets), get, done)
+    .then(() => done())
+    .catch(err => done(err))
   }
 }

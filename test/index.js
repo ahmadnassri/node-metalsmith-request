@@ -1,42 +1,34 @@
-/* global describe, it */
-'use strict'
+import Metalsmith from 'metalsmith'
+import request from '../src'
+import { test } from 'tap'
 
-var Metalsmith = require('metalsmith')
-var request = require('..')
+test('send request and update metadata', { timeout: 5000 }, (assert) => {
+  let smith = new Metalsmith('test')
 
-require('should')
+  let options = {
+    json: true
+  }
 
-describe('metalsmith-request', function () {
-  this.timeout(5000)
+  let targets = {
+    foo: 'http://mockbin.com/request?foo=bar',
+    bar: 'http://mockbin.com/request?bar=baz'
+  }
 
-  it('should send request and update metadata', function (done) {
-    var smith = new Metalsmith('test')
+  smith.use(request(targets, options))
 
-    var options = {
-      json: true
-    }
+  smith.build((err) => {
+    assert.equal(err, null)
 
-    var targets = {
-      foo: 'http://mockbin.com/request?foo=bar',
-      bar: 'http://mockbin.com/request?bar=baz'
-    }
+    let metadata = smith.metadata()
 
-    smith.use(request(targets, options))
+    assert.type(metadata.foo, Object)
+    assert.type(metadata.foo.queryString, Object)
+    assert.same(metadata.foo.queryString, { foo: 'bar' })
 
-    smith.build(function (err) {
-      if (err) return done(err)
+    assert.type(metadata.bar, Object)
+    assert.type(metadata.bar.queryString, Object)
+    assert.same(metadata.bar.queryString, { bar: 'baz' })
 
-      var metadata = smith.metadata()
-
-      metadata.foo.should.be.an.Object
-      metadata.foo.should.have.property('queryString')
-      metadata.foo.queryString.should.eql({ foo: 'bar' })
-
-      metadata.bar.should.be.an.Object
-      metadata.bar.should.have.property('queryString')
-      metadata.bar.queryString.should.eql({ bar: 'baz' })
-
-      done()
-    })
+    assert.end()
   })
 })
