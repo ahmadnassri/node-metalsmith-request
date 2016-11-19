@@ -14,7 +14,7 @@ uses [got](https://github.com/sindresorhus/got) under the hood to make HTTP call
 ## Install
 
 ```bash
-npm install --production --save metalsmith-request
+npm install --only=production --save metalsmith-request
 ```
 
 ## Usage
@@ -55,9 +55,9 @@ You can also pass `options` as the second argument to use with the [got](https:/
 ```js
 const metalsmith = new Metalsmith(__dirname)
   .use(request(
-    { 
+    {
       foo: 'http://domain.com/foo.json'
-    }, 
+    },
     {
       json: true
     }
