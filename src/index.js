@@ -10,8 +10,7 @@ const defaults = {
   }
 }
 
-module.exports = function (targets, options) {
-  targets = targets || {}
+export default function (targets = {}, options = {}) {
   options = Object.assign({}, defaults, options)
 
   return (files, metalsmith, done) => {
