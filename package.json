@@ -62,7 +62,7 @@
     "metalsmith": "^2.3.0",
     "semantic-release": "^6.3.2",
     "snazzy": "^5.0.0",
-    "tap": "^8.0.1"
+    "tap": "^11.0.0"
   },
   "dependencies": {
     "got": "^6.6.3"
