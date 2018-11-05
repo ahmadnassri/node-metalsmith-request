@@ -19,7 +19,7 @@
     "got"
   ],
   "engines": {
-    "node": ">=6"
+    "node": ">=8.6"
   },
   "files": [
     "index.js"
