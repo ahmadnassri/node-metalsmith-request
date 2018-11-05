@@ -1,6 +1,6 @@
-import Metalsmith from 'metalsmith'
-import request from '../src'
-import { test } from 'tap'
+const Metalsmith = require('metalsmith')
+const request = require('..')
+const { test } = require('tap')
 
 test('send request and update metadata', { timeout: 5000 }, (assert) => {
   let smith = new Metalsmith('test')

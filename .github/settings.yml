@@ -1,0 +1,16 @@
+_extends: .github
+
+repository:
+  name: metalsmith-request
+  description: Metalsmith plugin to grab content from the web and expose the results to metadata
+  topics: metalsmith,plugin,request,http,json,got
+  homepage: https://github.com/ahmadnassri/metalsmith-request
+  private: false
+  has_issues: true
+  has_wiki: false
+  has_downloads: false
+  has_projects: false
+  default_branch: master
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: true

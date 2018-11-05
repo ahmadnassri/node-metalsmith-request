@@ -1,5 +1,5 @@
-import { debuglog } from 'util'
-import got from 'got'
+const { debuglog } = require('util')
+const got = require('got')
 
 const debug = debuglog('metalsmith-request')
 
@@ -10,7 +10,7 @@ const defaults = {
   }
 }
 
-export default function (targets = {}, options = {}) {
+module.exports = function (targets = {}, options = {}) {
   options = Object.assign({}, defaults, options)
 
   return (files, metalsmith, done) => {
@@ -30,7 +30,7 @@ export default function (targets = {}, options = {}) {
         .then(body => (metadata[key] = body))
     }))
 
-    .then(() => done())
-    .catch(err => done(err))
+      .then(() => done())
+      .catch(err => done(err))
   }
 }
