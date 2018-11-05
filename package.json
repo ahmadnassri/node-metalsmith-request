@@ -61,7 +61,7 @@
     "echint": "^2.1.0",
     "metalsmith": "^2.3.0",
     "semantic-release": "^6.3.2",
-    "snazzy": "^5.0.0",
+    "snazzy": "^8.0.0",
     "tap": "^8.0.1"
   },
   "dependencies": {
