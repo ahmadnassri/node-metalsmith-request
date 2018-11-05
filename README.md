@@ -62,5 +62,5 @@ You can also use the plugin with the Metalsmith CLI by adding a key to your `met
 [circle-url]: https://circleci.com/gh/ahmadnassri/workflows/metalsmith-request
 [circle-image]: https://img.shields.io/circleci/project/github/ahmadnassri/metalsmith-request/master.svg?style=for-the-badge&logo=circleci
 
-[npm-url]: https://www.npmjs.com/package/@ahmadnassri/metalsmith-request
-[npm-image]: https://img.shields.io/npm/v/@ahmadnassri/metalsmith-request.svg?style=for-the-badge&logo=npm
+[npm-url]: https://www.npmjs.com/package/metalsmith-request
+[npm-image]: https://img.shields.io/npm/v/metalsmith-request.svg?style=for-the-badge&logo=npm
