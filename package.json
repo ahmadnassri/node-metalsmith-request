@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0-development",
+  "version": "3.0.0",
   "name": "metalsmith-request",
   "description": "Metalsmith plugin to grab content from the web and expose the results to metadata",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
