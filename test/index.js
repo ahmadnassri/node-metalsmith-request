@@ -32,15 +32,3 @@ test('send request and update metadata', { timeout: 5000 }, (assert) => {
     assert.end()
   })
 })
-
-test('does nothing on empty options / target', (assert) => {
-  const smith = new Metalsmith('test')
-
-  smith.use(request())
-
-  smith.build((err) => {
-    assert.equal(err, null)
-
-    assert.end()
-  })
-})

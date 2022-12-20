@@ -9,7 +9,7 @@ const defaults = {
   }
 }
 
-module.exports = function (targets = {}, options = {}) {
+module.exports = function (/* istanbul ignore next */ targets = {}, /* istanbul ignore next */options = {}) {
   options = Object.assign({}, defaults, options)
 
   return (files, metalsmith, done) => {
@@ -26,6 +26,7 @@ module.exports = function (targets = {}, options = {}) {
     }))
 
       .then(() => done())
-      .catch(err => done(err))
+
+      .catch(/* istanbul ignore next */ err => done(err))
   }
 }
