@@ -1,0 +1,8 @@
+version: 2.0
+
+id: node-metalsmith-request
+
+about:
+  title: Metalsmith Request
+  description: Metalsmith plugin to grab content from the web and expose the results to metadata
+  repository: ahmadnassri/node-metalsmith-request

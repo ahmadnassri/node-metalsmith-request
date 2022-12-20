@@ -1,14 +1,16 @@
-# Meatsmith Request
+# Metalsmith Request
 
-[![License][license-image]][license-url] [![version][npm-image]][npm-url] [![Build Status][circle-image]][circle-url]
+Metalsmith plugin to grab content from the web and expose the results to metadata
 
-> [Metalsmith](http://www.metalsmith.io/) plugin to grab content from the web and expose the results to metadata.
+[![license][license-img]][license-url]
+[![release][release-img]][release-url]
+[![semantic][semantic-img]][semantic-url]
 
-uses [got](https://github.com/sindresorhus/got) under the hood to make HTTP calls.
+uses [got][] under the hood to make HTTP calls.
 
 ## Install
 
-```bash
+``` bash
 npm install metalsmith-request
 ```
 
@@ -17,24 +19,21 @@ npm install metalsmith-request
 Pass `targets` to the plugin with the `use` method:
 
 ```js
-const metalsmith = new Metalsmith(__dirname)
-  .use(request({
-    foo: 'http://domain.com/foo'
-  }))
+metalsmith.use(request({ target: 'http://domain.com/foo' }))
 ```
 
-You can also pass `options` as the second argument to use with the [got](https://github.com/sindresorhus/got) module
+You can also pass `options` as the second argument to use with the [got][] module
 
 ```js
-const metalsmith = new Metalsmith(__dirname)
-  .use(request(
-    {
-      foo: 'http://domain.com/foo.json'
-    },
-    {
-      json: true
-    }
-  ))
+const targets = { 
+  foo: 'http://domain.com/foo.json'
+}
+
+const options = {
+  responseType: true
+}
+
+metalsmith.use(request(targets, options))
 ```
 
 ## CLI
@@ -51,16 +50,17 @@ You can also use the plugin with the Metalsmith CLI by adding a key to your `met
 }
 ```
 
----
-> Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull; 
-> Github: [@ahmadnassri](https://github.com/ahmadnassri) &bull; 
+  [got]: https://github.com/sindresorhus/got
+
+----
+> Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull;
 > Twitter: [@AhmadNassri](https://twitter.com/AhmadNassri)
 
 [license-url]: LICENSE
-[license-image]: https://img.shields.io/github/license/ahmadnassri/metalsmith-request.svg?style=for-the-badge&logo=circleci
+[license-img]: https://badgen.net/github/license/ahmadnassri/node-metalsmith-request
 
-[circle-url]: https://circleci.com/gh/ahmadnassri/workflows/metalsmith-request
-[circle-image]: https://img.shields.io/circleci/project/github/ahmadnassri/metalsmith-request/master.svg?style=for-the-badge&logo=circleci
+[release-url]: https://github.com/ahmadnassri/node-metalsmith-request/releases
+[release-img]: https://badgen.net/github/release/ahmadnassri/node-metalsmith-request
 
-[npm-url]: https://www.npmjs.com/package/metalsmith-request
-[npm-image]: https://img.shields.io/npm/v/metalsmith-request.svg?style=for-the-badge&logo=npm
+[semantic-url]: https://github.com/ahmadnassri/node-metalsmith-request/actions?query=workflow%3Arelease
+[semantic-img]: https://badgen.net/badge/📦/semantically%20released/blue
