@@ -1,15 +1,21 @@
 {
-  "version": "3.0.0",
+  "version": "0.0.0-semantically-released",
   "name": "metalsmith-request",
   "description": "Metalsmith plugin to grab content from the web and expose the results to metadata",
-  "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
-  "homepage": "https://github.com/ahmadnassri/metalsmith-request",
+  "author": "Ahmad Nassri <opensource@ahmadnassri.net> (https://www.ahmadnassri.com)",
+  "homepage": "https://github.com/ahmadnassri/node-metalsmith-request",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadnassri/metalsmith-request.git"
+    "url": "https://github.com/ahmadnassri/node-metalsmith-request.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahmadnassri/node-metalsmith-request/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/ahmadnassri"
   },
   "license": "MIT",
-  "main": "index.js",
   "keywords": [
     "metalsmith",
     "plugin",
@@ -19,28 +25,24 @@
     "got"
   ],
   "engines": {
-    "node": ">=8.6"
+    "node": ">=14"
   },
   "files": [
-    "index.js"
+    "src"
   ],
-  "bugs": {
-    "url": "https://github.com/ahmadnassri/metalsmith-request/issues"
-  },
+  "main": "src/index.js",
   "scripts": {
-    "lint:deps": "npx updated",
-    "lint:ec": "npx editorconfig-checker .",
-    "lint:js": "npx eslint .",
-    "lint:md": "npx remark --quiet --frail .",
-    "lint": "npx run-p lint:*",
-    "open:coverage": "opener coverage/lcov-report/index.html",
-    "test": "tap test --coverage-report=lcov --no-browser"
+    "test": "tap test --no-coverage",
+    "test:ci": "tap test --100",
+    "test:watch": "tap test --watch",
+    "test:report": "opener coverage/lcov-report/index.html"
   },
   "devDependencies": {
-    "tap": "^12.0.1",
-    "metalsmith": "^2.3.0"
+    "metalsmith": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "tap": "^16.3.2"
   },
   "dependencies": {
-    "got": "^9.3.1"
+    "got": "^11.8.3"
   }
 }
